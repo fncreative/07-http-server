@@ -15,10 +15,24 @@ const app = http.createServer((request, response) => {
       if (parsedRequest.method === 'GET' && parsedRequest.url === '/') {
         response.writeHead(200, { 'Content-Type': 'text/html' });
 
-        response.write(`<!DOCTYPE html> 
-                        <head>This is the head of the document</head>
-                        <body>Why can't I have pets?!</body>
-                        </html>`);
+        response.write(`<!DOCTYPE html>
+            <html>
+              <head>
+                <title> cowsay </title>  
+              </head>
+              <body>
+               <header>
+                 <nav>
+                   <ul> 
+                     <li><a href="/cowsay">cowsay</a></li>
+                   </ul>
+                 </nav>
+               <header>
+               <main>
+                 <p>This project is designed to test specific routes and return status messages accordingly</p>
+               </main>
+              </body>
+            </html>`);
         logger.log(logger.INFO, 'Responding back with 200 status code and html document');
         response.end();
         return undefined;
